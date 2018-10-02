@@ -38,7 +38,7 @@ var svg = d3
  // Parse data
   healthData.forEach(function(data) {
 	  data.poverty = +data.poverty;
-	  data.healthStatus = +data.healthStatus;
+	  data.povertyMoe = +data.povertyMoe;
   });
 
 // Create the scales for the chart
@@ -54,7 +54,7 @@ var svg = d3
 	})]);
 
 	y.domain([0,d3.max(healthData, function(data){
-		return +data.healthStatus;
+		return +data.povertyMoe;
 	})]);
 
 // Defining tooltip
@@ -64,8 +64,8 @@ var svg = d3
 		.html(function(data){
 			var state = data.state;
 			var povertyRate = +data.poverty;
-			var healthStatus = +data.healthStatus;
-			return(state + "<br> Poverty Rate (%): " + povertyRate + "<br> Health Rate (%): " + healthStatus)
+			var povertyMoe = +data.povertyMoe;
+			return(state + "<br> Poverty Rate (%): " + povertyRate + "<br> Health Rate (%): " + povertyMoe)
 		});
 
 	chart.call(toolTip);
@@ -79,8 +79,8 @@ var svg = d3
 				return x(data.poverty);
 			})
 			.attr("cy", function(data, index){
-				console.log(data.healthStatus);
-				return y(data.healthStatus);
+				console.log(data.povertyMoe);
+				return y(data.povertyMoe);
 			})
 			.attr('r', "10")
 			.attr("fill", "blue")
