@@ -32,7 +32,7 @@ var svg = d3
 	 .style("opacity", 1)
 
 // Import data from the data.csv file, call the function healthData
-  d3.csv("data.csv", function(error, healthData) {
+  d3.csv("../data/data.csv", function(error, healthData) {
 	if (error) throw error;
 
  // Parse data
@@ -121,4 +121,3 @@ var svg = d3
 		.attr("class", "axisText")
 		.text("Correlation of Health vs. Poverty in USA");
 })
-© 2018 GitHub, Inc.
